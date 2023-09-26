@@ -1,0 +1,8 @@
+
+
+cim:
+  server:
+    port: 11211
+
+server:
+  port: 9020
