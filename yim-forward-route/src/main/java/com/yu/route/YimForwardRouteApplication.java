@@ -1,13 +1,13 @@
-package com.yuge.yimcommon;
+package com.yu.route;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class YimCommonApplication {
+public class YimForwardRouteApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(YimCommonApplication.class, args);
+        SpringApplication.run(YimForwardRouteApplication.class, args);
     }
 
 }

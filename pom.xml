@@ -19,15 +19,31 @@
     <properties>
         <java.version>1.8</java.version>
         <netty.version>4.1.21.Final</netty.version>
+        <swagger.version>2.5.0</swagger.version>
     </properties>
 
     <modules>
         <module>yim-server</module>
         <module>yim-common</module>
+        <module>yim-client</module>
+        <module>yim-route-api</module>
+        <module>yim-forward-route</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.github.sgroschupf</groupId>
