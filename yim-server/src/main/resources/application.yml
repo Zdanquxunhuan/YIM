@@ -4,5 +4,15 @@ cim:
   server:
     port: 11211
 
+
 server:
   port: 9020
+
+
+app:
+  zk:
+    root: /route
+    addr: 127.0.0.1:2181
+    SignUp: true
+    connect:
+      timeout: 15000

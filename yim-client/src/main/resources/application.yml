@@ -1,0 +1,8 @@
+server:
+  port: 9010
+
+# unique account of the Client
+yim:
+  client:
+    userId: 982287281
+    userName: SingleCycle

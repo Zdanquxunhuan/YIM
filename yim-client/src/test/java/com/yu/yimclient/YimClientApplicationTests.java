@@ -1,10 +1,10 @@
-package com.yuge.yimcommon;
+package com.yu.yimclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class YimCommonApplicationTests {
+class YimClientApplicationTests {
 
     @Test
     void contextLoads() {

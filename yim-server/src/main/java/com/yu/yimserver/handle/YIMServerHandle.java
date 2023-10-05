@@ -14,12 +14,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @ChannelHandler.Sharable
 @Slf4j
-public class YIMServerHandle extends SimpleChannelInboundHandler<CIMRequestProto.CIMReqProtocol> {
-
-
-    // messageReceived , Is called for each message of type I.
+public class YIMServerHandle extends SimpleChannelInboundHandler {
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, CIMRequestProto.CIMReqProtocol msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         log.info("received msg=[{}]",msg.toString());
     }
+
+
 }
