@@ -20,6 +20,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.yu</groupId>
+            <artifactId>yim-route-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.yu.yim</groupId>
             <artifactId>yim-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>

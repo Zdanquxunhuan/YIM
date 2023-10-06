@@ -6,3 +6,8 @@ yim:
   client:
     userId: 982287281
     userName: SingleCycle
+    reconnect:
+      count: 3
+
+  route:     # route url suggested that this is Nginx address
+    url: http://localhost:8083/

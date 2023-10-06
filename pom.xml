@@ -30,8 +30,15 @@
         <module>yim-forward-route</module>
     </modules>
 
+<!--    集中管理项目中的依赖版本号-->
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>3.3.1</version>
+            </dependency>
 
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -68,6 +75,8 @@
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
             </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>
