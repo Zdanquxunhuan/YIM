@@ -13,4 +13,10 @@ public class YIMServerResDTO {
     private String ip;
     private int httpPort;
     private int yimServerPort;
+
+    public YIMServerResDTO(RouteInfo routeInfo) {
+        this.ip = routeInfo.getIp();
+        this.httpPort = routeInfo.getHttpPort();
+        this.yimServerPort = routeInfo.getYimServerPort();
+    }
 }

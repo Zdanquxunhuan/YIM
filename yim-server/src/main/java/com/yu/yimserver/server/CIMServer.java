@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.net.InetSocketAddress;
 
 @Component
@@ -44,5 +45,12 @@ public class CIMServer {
         if(future.isSuccess())
             log.info("Start yim server success!!!");
 
+    }
+
+    @PreDestroy
+    public void destroy(){
+        boss.shutdownGracefully().syncUninterruptibly();
+        worker.shutdownGracefully().syncUninterruptibly();
+        log.info("Close yim server successfully");
     }
 }

@@ -1,5 +1,7 @@
 package com.yu.yimserver.handle;
 
+import com.yuge.yimcommon.constant.MessageType;
+import com.yuge.yimcommon.message.YIMMessage;
 import com.yuge.yimcommon.protocol.CIMRequestProto;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -14,11 +16,16 @@ import lombok.extern.slf4j.Slf4j;
  */
 @ChannelHandler.Sharable
 @Slf4j
-public class YIMServerHandle extends SimpleChannelInboundHandler {
+public class YIMServerHandle extends SimpleChannelInboundHandler<YIMMessage> {
+
+
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, YIMMessage msg) throws Exception {
         log.info("received msg=[{}]",msg.toString());
+
+        if(MessageType.LOGIN == msg.getType()){
+            //Saves the relationship between the client and Channel
+
+        }
     }
-
-
 }

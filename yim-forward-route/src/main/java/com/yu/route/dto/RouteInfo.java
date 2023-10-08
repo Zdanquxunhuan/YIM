@@ -11,6 +11,6 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public final class RouteInfo {
     private String ip ;
-    private Integer cimServerPort;
+    private Integer yimServerPort;
     private Integer httpPort;
 }
