@@ -17,13 +17,13 @@ import java.net.InetSocketAddress;
 
 @Component
 @Slf4j
-public class CIMServer {
+public class YIMServer {
 
     //创建线程池处理客户端连接请求(boss)，和处理客户端请求（worker）
     private EventLoopGroup boss = new NioEventLoopGroup();
     private EventLoopGroup worker = new NioEventLoopGroup();
 
-    @Value("${cim.server.port}")
+    @Value("${yim.server.port}")
     private int nettyPort;
 
     /**

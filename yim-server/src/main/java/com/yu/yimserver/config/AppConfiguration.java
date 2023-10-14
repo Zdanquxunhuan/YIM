@@ -15,7 +15,7 @@ public class AppConfiguration {
     @Value("${app.zk.addr}")
     private String zkAddr;
 
-    @Value("${app.zk.switch}")
+    @Value("${app.zk.signup}")
     private boolean zkSignUp;
 
     @Value("${app.zk.connect.timeout}")

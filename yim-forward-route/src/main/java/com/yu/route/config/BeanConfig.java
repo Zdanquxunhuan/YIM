@@ -44,7 +44,10 @@ public class BeanConfig {
     @Bean
     public RouteHandle buildRouteHandle() throws Exception {
 
-        RouteHandle routeHandle = (RouteHandle)Class.forName(appConfiguration.getRouteMethod()).newInstance();
+        String routeMethod = appConfiguration.getRouteMethod();
+        log.info("routeMethod:{}",routeMethod);
+
+        RouteHandle routeHandle = (RouteHandle)Class.forName(routeMethod).newInstance();
         log.info("Current route algorithm is [{}]",routeHandle.getClass().getSimpleName());
         return routeHandle;
 

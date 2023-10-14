@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.yu.route","com.yuge.yimcommon.teslog"})
+@EnableAspectJAutoProxy
 public class YimForwardRouteApplication implements CommandLineRunner {
 
     @Autowired

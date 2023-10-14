@@ -19,9 +19,9 @@ public class CheckServerUtil {
 
     public boolean isAvailable(RouteInfo routeInfo) {
 
-        boolean reachable = NetAddressIsReachable.checkAddressReachable(routeInfo.getIp(), routeInfo.getCimServerPort(), 1000);
+        boolean reachable = NetAddressIsReachable.checkAddressReachable(routeInfo.getIp(), routeInfo.getYimServerPort(), 1000);
         if (!reachable) {
-            log.error("ip={}, port={} are not available", routeInfo.getIp(), routeInfo.getCimServerPort());
+            log.error("ip={}, port={} are not available", routeInfo.getIp(), routeInfo.getYimServerPort());
 
             serverCache.rebuildServersCache();
 

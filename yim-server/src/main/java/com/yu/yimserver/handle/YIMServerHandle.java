@@ -25,7 +25,7 @@ public class YIMServerHandle extends SimpleChannelInboundHandler<YIMMessage> {
 
         if(MessageType.LOGIN == msg.getType()){
             //Saves the relationship between the client and Channel
-
+            log.info("This is a login message");
         }
     }
 }

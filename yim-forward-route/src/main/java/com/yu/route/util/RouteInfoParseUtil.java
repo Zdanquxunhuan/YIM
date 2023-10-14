@@ -13,7 +13,7 @@ public class RouteInfoParseUtil {
         try{
             RouteInfo routeInfo = new RouteInfo()
                     .setIp(info[0])
-                    .setCimServerPort(Integer.valueOf(info[1]))
+                    .setYimServerPort(Integer.valueOf(info[1]))
                     .setHttpPort(Integer.valueOf(info[2]));
             return routeInfo;
         }catch (Exception e){
