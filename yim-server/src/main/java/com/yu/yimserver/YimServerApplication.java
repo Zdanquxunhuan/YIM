@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.net.InetAddress;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.yu.yimserver","com.yuge.yimcommon.yulog"})
 public class YimServerApplication implements CommandLineRunner {
 
     @Value("${server.port}")

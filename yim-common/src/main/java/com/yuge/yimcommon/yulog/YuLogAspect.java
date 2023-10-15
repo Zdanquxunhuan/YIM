@@ -59,6 +59,7 @@ public class YuLogAspect {
         String logRecord = "";
         // 获取方法的名称和参数类型
         MethodSignature signature = (MethodSignature) pjp.getSignature();
+        logRecord +=signature.toString();
 
         //Get it from the method first, then from the class. Build one if you don't have one
         YuLogMetrics yuLogMetrics = signature.getMethod().getAnnotation(YuLogMetrics.class);

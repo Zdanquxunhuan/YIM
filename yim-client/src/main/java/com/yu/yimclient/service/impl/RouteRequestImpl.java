@@ -6,6 +6,7 @@ import com.yu.yimclient.dto.YIMServerResDTO;
 import com.yu.yimclient.service.RouteRequest;
 import com.yu.yimrouteapi.RouteApi;
 import com.yuge.yimcommon.proxy.HttpInvokeProxy;
+import com.yuge.yimcommon.yulog.YuLogMetrics;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -17,6 +18,7 @@ import java.io.IOException;
 
 @Service
 @Slf4j
+@YuLogMetrics
 public class RouteRequestImpl implements RouteRequest {
 
     @Value("${yim.route.url}")
@@ -43,6 +45,6 @@ public class RouteRequestImpl implements RouteRequest {
         }finally {
             response.body().close();
         }
-        return yimServerResDTO.getServerInfo();
+        return yimServerResDTO.getDataBody();
     }
 }

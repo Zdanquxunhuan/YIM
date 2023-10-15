@@ -13,7 +13,7 @@ public class YIMServerResDTO implements Serializable {
     private String code;
     private String message;
     private Object reqNo;
-    private ServerInfo serverInfo;
+    private ServerInfo dataBody;
 
     @Data
     @ToString

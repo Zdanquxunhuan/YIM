@@ -10,7 +10,7 @@ public class MessageType {
     /**
      * business message
      */
-    public static final int COMMINICATE = 2;
+    public static final int CHAT = 2;
 
     /**
      * ping

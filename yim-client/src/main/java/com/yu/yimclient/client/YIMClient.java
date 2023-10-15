@@ -1,15 +1,17 @@
 package com.yu.yimclient.client;
 
 import com.yu.yimclient.config.AppConfiguration;
+import com.yu.yimclient.dto.GoogleProtocolDTO;
 import com.yu.yimclient.dto.LoginReqDTO;
 import com.yu.yimclient.dto.YIMServerResDTO;
 import com.yu.yimclient.handle.YIMClientHandle;
 import com.yu.yimclient.init.YIMClientInitializer;
 import com.yu.yimclient.service.RouteRequest;
 import com.yuge.yimcommon.constant.MessageType;
-import com.yuge.yimcommon.message.YIMMessage;
+import com.yuge.yimcommon.protocol.CIMRequestProto;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -57,14 +59,24 @@ public class YIMClient {
 
     private void loginYIMClient() {
 
-        YIMMessage yimMessage = new YIMMessage()
+        CIMRequestProto.CIMReqProtocol login = CIMRequestProto.CIMReqProtocol.newBuilder()
                 .setRequestId(userId)
-                .setData(userName)
-                .setType(MessageType.LOGIN);
+                .setReqMsg(userName)
+                .setType(MessageType.LOGIN)
+                .build();
 
-        ChannelFuture future = channel.writeAndFlush(yimMessage);
+        ChannelFuture future = channel.writeAndFlush(login);
         //Adds the specified listener to this future. The specified listener is notified when this future is done.
-        future.addListener(channelFuture -> log.info("client login success"));
+        future.addListener(channelFuture -> {
+            if (channelFuture.isSuccess()) {
+                // 发送成功的处理逻辑
+                System.out.println("消息发送成功！");
+            } else {
+                // 发送失败的处理逻辑
+                System.err.println("消息发送失败：" + channelFuture.cause());
+            }
+            log.info("client login success");
+        });
     }
 
 
@@ -104,7 +116,7 @@ public class YIMClient {
         //Returns a ChannelFuture object representing the asynchronous result of the connection operation
         ChannelFuture connect = null;
         try {
-            connect = bootstrap.connect(serverInfo.getIp(), serverInfo.getYimServerPort());
+            connect = bootstrap.connect(serverInfo.getIp(), serverInfo.getYimServerPort()).sync();
         } catch (Exception e) {
             //TODO Reconnect after a failure
 
@@ -116,5 +128,26 @@ public class YIMClient {
             log.info("启动yim client 成功");
 
         channel = (SocketChannel) connect.channel();
+    }
+
+    /**
+     * 发送 Google Protocol 编解码字符串
+     *
+     * @param googleProtocolVO
+     */
+    public void sendGoogleProtocolMsg(GoogleProtocolDTO googleProtocolVO) {
+
+        CIMRequestProto.CIMReqProtocol protocol = CIMRequestProto.CIMReqProtocol.newBuilder()
+                .setRequestId(googleProtocolVO.getRequestId())
+                .setReqMsg(googleProtocolVO.getMsg())
+                .setType(MessageType.CHAT)
+                .build();
+
+
+        ChannelFuture future = channel.writeAndFlush(protocol);
+        future.addListener((ChannelFutureListener) channelFuture ->{
+                    log.info("客户端手动发送 Google Protocol ={}", googleProtocolVO);
+                });
+
     }
 }

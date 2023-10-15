@@ -19,12 +19,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.yuge.yimcommon.enums.StatusEnum.SUCCESS;
 
-@RestController
 @Slf4j
+@RestController
+@RequestMapping
 public class RouteController implements RouteApi {
 
     @Autowired
@@ -42,7 +44,7 @@ public class RouteController implements RouteApi {
     @ApiOperation("Log in and get the server")
     @PostMapping("/loginAndGetServer")
     @Override
-    public BaseResponse<YIMServerResDTO> loginAndGetServer(LoginReqDTO dto) {
+    public BaseResponse<YIMServerResDTO> loginAndGetServer(@RequestBody LoginReqDTO dto) {
         BaseResponse<YIMServerResDTO> res = new BaseResponse<>();
 
         // 127.0.0.1:11211:8081

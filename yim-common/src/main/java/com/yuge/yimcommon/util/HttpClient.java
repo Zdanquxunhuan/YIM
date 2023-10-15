@@ -9,9 +9,8 @@ public final class HttpClient {
     private static MediaType mediaType = MediaType.parse("application/json");
 
     /**
-     * Factory for calls, which can be used to send HTTP requests and read their responses
      *
-     * @param okHttpClient
+     * @param okHttpClient Factory for calls, which can be used to send HTTP requests and read their responses
      * @param params
      * @param url
      * @return
@@ -26,6 +25,7 @@ public final class HttpClient {
                 .post(requestBody)
                 .build();
 
+        //execute():Invokes the request immediately, and blocks until the response can be processed or is in err
         Response response = okHttpClient.newCall(request).execute();
         if (!response.isSuccessful()) {
             throw new IOException("Unexpected code " + response);

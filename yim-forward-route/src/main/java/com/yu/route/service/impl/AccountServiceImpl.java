@@ -56,9 +56,9 @@ public class AccountServiceImpl implements AccountService {
             return StatusEnum.ACCOUNT_NOT_MATCH;
 
         //Log in successfully. Save the login status
-        boolean hasLogin = userInfoCacheService.CheckAndSaveUserLoginStatus(loginReq.getUserId());
-        if (hasLogin)
-            return StatusEnum.REPEAT_LOGIN;
+//        boolean hasLogin = userInfoCacheService.CheckAndSaveUserLoginStatus(loginReq.getUserId());
+//        if (hasLogin)
+//            return StatusEnum.REPEAT_LOGIN;
 
         return StatusEnum.SUCCESS;
     }

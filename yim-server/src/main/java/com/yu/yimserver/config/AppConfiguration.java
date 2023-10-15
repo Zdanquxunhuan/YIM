@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 @Data
 public class AppConfiguration {
 
-    @Value("${app.zk.root}")
+    @Value("${app.forbug.zk.root}")
     private String zkRoot;
 
-    @Value("${app.zk.addr}")
+    @Value("${app.forbug.zk.addr}")
     private String zkAddr;
 
-    @Value("${app.zk.signup}")
+    @Value("${app.forbug.zk.signup}")
     private boolean zkSignUp;
 
-    @Value("${app.zk.connect.timeout}")
+    @Value("${app.forbug.zk.connect.timeout}")
     private int zkConnectTimeout;
 
     @Value("${yim.server.port}")
